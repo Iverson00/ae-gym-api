@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, Membership, Member, Purchase
+from .models import Product, Member, Purchase
 
 
 
@@ -8,13 +8,6 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = "__all__"
-
-
-class MembershipSerializer(serializers.ModelSerializer):
-    
-        class Meta:
-            model = Membership
-            fields = "__all__"
 
 
 

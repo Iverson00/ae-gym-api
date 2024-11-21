@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
-from .models import Product, Membership, Member, Purchase  
+from .models import Product, Member, Purchase  
 from rest_framework.permissions import IsAuthenticated
-from .serializers import ProductSerializer, MembershipSerializer, MemberSerializer, PurchaseSerializer 
+from .serializers import ProductSerializer, MemberSerializer, PurchaseSerializer 
 
 
 class ProductViewSet(ModelViewSet):
@@ -27,26 +27,6 @@ class ProductViewSet(ModelViewSet):
     ]
     
 
-class MembershipViewSet(ModelViewSet):
-    queryset = Membership.objects.all()
-    serializer_class = MembershipSerializer
-    permission_classes = [IsAuthenticated]
-    ordering_fields = "__all__"
-    filter_fields = [
-        "membership_type",
-        "status",
-        "registered_at",
-    ]
-    search_fields = [
-        "membership_type",
-        "status",
-        "registered_at",
-    ]
-    
-    
-
-
-
 class MemberViewSet(ModelViewSet):
     queryset = Member.objects.all()
     serializer_class = MemberSerializer
@@ -59,6 +39,7 @@ class MemberViewSet(ModelViewSet):
         "gender",
         "contact",
         "emergency_contact",
+        "membership",
     ]
     search_fields = [
         "first_name",
@@ -67,6 +48,7 @@ class MemberViewSet(ModelViewSet):
         "gender",
         "contact",
         "emergency_contact",
+        "membership",
     ]
 
 
