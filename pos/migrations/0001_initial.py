@@ -17,8 +17,8 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('membership_type', models.CharField(max_length=255)),
+                ('price', models.DecimalField(decimal_places=2, max_digits=10)),
                 ('status', models.CharField(max_length=255)),
-                ('registered_at', models.DateTimeField(blank=True, null=True)),
             ],
         ),
         migrations.CreateModel(
@@ -44,6 +44,7 @@ class Migration(migrations.Migration):
                 ('contact', models.CharField(max_length=11)),
                 ('emergency_contact', models.CharField(max_length=11)),
                 ('membership', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='pos.membership')),
+                ('registered_at', models.DateTimeField(blank=True, null=True)),
             ],
         ),
         migrations.CreateModel(
