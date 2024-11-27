@@ -11,13 +11,11 @@ class MembershipViewSet(ModelViewSet):
 
     filter_fields = [
         "membership_type",
-        "status",
         "price",
     ]
 
     search_fields = [
         "membership_type",
-        "status",
         "price",
     ]
     
@@ -30,17 +28,15 @@ class ProductViewSet(ModelViewSet):
     filter_fields = [
         "name",
         "price",
-        "stock",
+        "image",
         "product_type",
-        "product_description",
     ]
 
     search_fields = [
         "name",
         "price",
-        "stock",
+        "image",
         "product_type",
-        "product_description",
     ]
     
 
