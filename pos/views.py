@@ -1,4 +1,5 @@
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.parsers import MultiPartParser, FormParser
 from .models import Product, Member, Purchase, Membership  
 from rest_framework.permissions import IsAuthenticated
 from .serializers import ProductSerializer, MemberSerializer, PurchaseSerializer, MembershipSerializer 
@@ -39,7 +40,8 @@ class ProductViewSet(ModelViewSet):
         "product_type",
     ]
     
-
+    parser_classes = [MultiPartParser, FormParser] 
+    
 class MemberViewSet(ModelViewSet):
     queryset = Member.objects.all()
     serializer_class = MemberSerializer

@@ -7,6 +7,7 @@ class MembershipSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class ProductSerializer(serializers.ModelSerializer):
+    image = serializers.ImageField(required=False) 
 
     class Meta:
         model = Product
