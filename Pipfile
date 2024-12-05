@@ -18,6 +18,7 @@ pillow = "*"
 pytz = "*"
 tzdata = "*"
 drf-excel = "*"
+cryptography = "*"
 
 [dev-packages]
 
