@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Product, Member, Purchase, Membership
+from .models import Product, Member, Purchase, Membership, MembershipTransaction
 
 class MembershipSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,28 +14,23 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 class MemberSerializer(serializers.ModelSerializer):
-    membership_type = serializers.CharField(source='membership.membership_type', read_only=True)
 
     class Meta:
         model = Member
-        fields = [
-            'id', 
-            'first_name', 
-            'last_name', 
-            'birth_date', 
-            'gender', 
-            'contact', 
-            'emergency_contact', 
-            'membership',
-            'membership_type',  
-            'registered_at',
-        ]
-        
-def get_membership_type(self, obj):
-        return obj.membership.membership_type if obj.membership else None
+        fields = "__all__"
 
 class PurchaseSerializer(serializers.ModelSerializer): 
 
     class Meta:
         model = Purchase
+        fields = "__all__"
+
+
+
+class MembershipTransactionSerializer(serializers.ModelSerializer):
+    member = MemberSerializer()
+    membership = MembershipSerializer()
+
+    class Meta:
+        model = MembershipTransaction
         fields = "__all__"

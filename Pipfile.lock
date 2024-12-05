@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "3eeda8f202a0b5f2c77a8a88d76b8b97b3753b85aee1fcf04865f89261ada0fc"
+            "sha256": "054e06f7316d07e01c9c1c089597f97e75187a00bf676755da648f06002ec743"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -259,12 +259,12 @@
         },
         "django": {
             "hashes": [
-                "sha256:8b38a9a12da3ae00cb0ba72da985ec4b14de6345046b1e174b1fd7254398f818",
-                "sha256:c0fa0e619c39325a169208caef234f90baa925227032ad3f44842ba14d75234a"
+                "sha256:236e023f021f5ce7dee5779de7b286565fdea5f4ab86bae5338e3f7b69896cf0",
+                "sha256:de450c09e91879fa5a307f696e57c851955c910a438a35e6b4c895e86bedc82a"
             ],
             "index": "pypi",
             "markers": "python_version >= '3.10'",
-            "version": "==5.1.3"
+            "version": "==5.1.4"
         },
         "django-cors-headers": {
             "hashes": [
@@ -311,6 +311,15 @@
             "markers": "python_version >= '3.8' and python_version < '4.0'",
             "version": "==2.3.1"
         },
+        "drf-excel": {
+            "hashes": [
+                "sha256:06f2beea1f928f9bc4dd4840ccba957aff8616cfdea9f98034fdd7e55aaa38a2",
+                "sha256:08b7bafbcc036c480225a136151e8f813de56f50910d4fc94ff50b100937a7c4"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.9'",
+            "version": "==2.5.1"
+        },
         "drf-yasg": {
             "hashes": [
                 "sha256:a410b235e7cc2c0f6b9d4f671e8efe6f2d27cba398fbd16064e16ef814998444",
@@ -319,6 +328,14 @@
             "index": "pypi",
             "markers": "python_version >= '3.6'",
             "version": "==1.21.8"
+        },
+        "et-xmlfile": {
+            "hashes": [
+                "sha256:7a91720bc756843502c3b7504c77b8fe44217c85c537d85037f0f536151b2caa",
+                "sha256:dab3f4764309081ce75662649be815c4c9081e88f0837825f90fd28317d4da54"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==2.0.0"
         },
         "idna": {
             "hashes": [
@@ -358,6 +375,14 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==3.2.2"
+        },
+        "openpyxl": {
+            "hashes": [
+                "sha256:5282c12b107bffeef825f4617dc029afaf41d0ea60823bbb665ef3079dc79de2",
+                "sha256:cf0e3cf56142039133628b5acffe8ef0c12bc902d2aadd3e0fe5878dc08d1050"
+            ],
+            "markers": "python_version >= '3.8'",
+            "version": "==3.1.5"
         },
         "packaging": {
             "hashes": [

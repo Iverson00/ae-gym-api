@@ -15,13 +15,11 @@ class Member(models.Model):
     gender = models.CharField(max_length=255)
     contact = models.CharField(max_length=11)
     emergency_contact = models.CharField(max_length=11)
-    membership = models.ForeignKey(Membership, on_delete=models.CASCADE)
-    registered_at = models.DateTimeField(blank=True, null=True)
 
     def __str__(self):
-        return f"{self.first_name} {self.last_name} - {self.membership.membership_type}"
+        return f"{self.first_name} {self.last_name} "
 
-        
+
 class Product(models.Model):
     name = models.CharField(max_length=255)
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -42,3 +40,10 @@ class Purchase(models.Model):
         return f"{self.member.first_name} {self.member.last_name} - {self.product.name}"
 
 
+class MembershipTransaction(models.Model):
+    member = models.ForeignKey(Member, on_delete=models.CASCADE)
+    membership = models.ForeignKey(Membership, on_delete=models.CASCADE)
+    registered_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.member.first_name} - {self.membership.membership_type}"

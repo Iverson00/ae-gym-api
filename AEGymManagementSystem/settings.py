@@ -159,9 +159,7 @@ REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": [
         "rest_framework.renderers.JSONRenderer",
         "rest_framework.renderers.BrowsableAPIRenderer",
-        # "rest_framework_xml.renderers.XMLRenderer",
-        # "rest_framework_yaml.renderers.YAMLRenderer",
-        # "rest_framework_csv.renderers.CSVRenderer",
+        'drf_excel.renderers.XLSXRenderer',
     ],
     "DEFAULT_FILTER_BACKENDS": [
         "django_filters.rest_framework.DjangoFilterBackend",
@@ -205,3 +203,8 @@ SWAGGER_SETTINGS = {
     },
     "USE_SESSION_AUTH": False,
 }
+
+
+DRF_EXCEL_DATETIME_FORMAT = 'mm-dd-yy h:mm AM/PM'
+DRF_EXCEL_DATE_FORMAT = 'mm-dd-yy'
+DRF_EXCEL_TIME_FORMAT = 'h:mm AM/PM'

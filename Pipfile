@@ -17,6 +17,7 @@ setuptools = "*"
 pillow = "*"
 pytz = "*"
 tzdata = "*"
+drf-excel = "*"
 
 [dev-packages]
 
