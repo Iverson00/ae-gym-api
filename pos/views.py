@@ -1,3 +1,4 @@
+from rest_framework.views import APIView
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.parsers import MultiPartParser, FormParser
 from .models import Product, Member, Purchase, Membership, MembershipTransaction
@@ -16,7 +17,16 @@ from .excel_style import COLUMN_HEADER, COLUMN_BODY_STYLES, BODY
 from .utils import encrypt
 import json
 from rest_framework.response import Response
+import os
 
+
+class SecretKeyAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+    
+    def get(self,request):
+        secret_key = os.getenv("ENCRYPTION_KEY")
+        return Response(secret_key)
+    
 
 class MembershipViewSet(ModelViewSet):
     queryset = Membership.objects.all()
