@@ -15,5 +15,5 @@ router.register(r"excel/purchases", views.ExcelPurchaseViewSet, basename="excel-
 router.register(r"excel/membership-transaction", views.ExcelMembershipTransactionViewSet, basename="excel-membership-transaction")
 
 urlpatterns = router.urls + [
-    path("secret_key/", views.SecretKeyAPIView.as_view())
+    path("secret-key/", views.SecretKeyAPIView.as_view())
 ]
