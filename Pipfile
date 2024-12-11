@@ -19,6 +19,7 @@ pytz = "*"
 tzdata = "*"
 drf-excel = "*"
 cryptography = "*"
+python-dateutil = "*"
 
 [dev-packages]
 

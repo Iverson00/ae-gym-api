@@ -25,7 +25,12 @@ class PurchaseSerializer(serializers.ModelSerializer):
         model = Purchase
         fields = "__all__"
 
+class PurchaseDepthSerializer(serializers.ModelSerializer): 
 
+    class Meta:
+        model = Purchase
+        fields = "__all__"
+        depth = 0
 
 class MembershipTransactionSerializer(serializers.ModelSerializer):
 
