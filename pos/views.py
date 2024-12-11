@@ -9,6 +9,7 @@ from .serializers import (
     PurchaseSerializer,
     MembershipSerializer,
     MembershipTransactionSerializer,
+    MembershipTransactionMembershipMemberSerializer
 )
 from rest_framework.viewsets import ReadOnlyModelViewSet
 from drf_excel.mixins import XLSXFileMixin
@@ -194,9 +195,7 @@ class PurchaseViewSet(ModelViewSet):
         return Response(encrypted_data, status=201)  
 
 class MembershipTransactionViewSet(ModelViewSet):
-    queryset = MembershipTransaction.objects.all().select_related(
-        "member", "membership"
-    )
+    queryset = MembershipTransaction.objects.all()
     serializer_class = MembershipTransactionSerializer
     permission_classes = [IsAuthenticated]
     ordering_fields = "__all__"
@@ -241,6 +240,56 @@ class MembershipTransactionViewSet(ModelViewSet):
         encrypted_data = encrypt(json_data)
 
         return Response(encrypted_data, status=201)  
+
+class MembershipTransactionMembershipMemberViewSet(ModelViewSet):
+    queryset = MembershipTransaction.objects.all().select_related(
+        "member", "membership"
+    )
+    serializer_class = MembershipTransactionMembershipMemberSerializer
+    permission_classes = [IsAuthenticated]
+    ordering_fields = "__all__"
+
+    filter_fields = [
+        "member__first_name",
+        "member__last_name",
+        "member__birth_date",
+        "member__gender",
+        "member__contact",
+        "member__emergency_contact",
+        "membership__membership_type",
+        "membership__price",
+    ]
+    search_fields = [
+        "member__first_name",
+        "member__last_name",
+        "member__birth_date",
+        "member__gender",
+        "member__contact",
+        "member__emergency_contact",
+        "membership__membership_type",
+        "membership__price",
+    ]
+
+    def list(self, request, *args, **kwargs):
+        obj = super().list(request, *args, **kwargs)
+        
+        serialized_data = obj.data  
+
+        json_data = json.dumps(serialized_data)
+        encrypted_data = encrypt(json_data)
+
+        return Response(encrypted_data, status=201)
+
+    def retrieve(self, request, *args, **kwargs):
+        obj = super().list(request, *args, **kwargs)
+        
+        serialized_data = obj.data  
+
+        json_data = json.dumps(serialized_data)
+        encrypted_data = encrypt(json_data)
+
+        return Response(encrypted_data, status=201)  
+
 
 class ExcelMembershipViewSet(XLSXFileMixin, ReadOnlyModelViewSet):
     queryset = Membership.objects.all()

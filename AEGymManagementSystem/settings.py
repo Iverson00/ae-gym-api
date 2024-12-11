@@ -172,7 +172,7 @@ REST_FRAMEWORK = {
 
     ],
     "DEFAULT_THROTTLE_RATES": {
-        "user": "500/day",
+        "user": "10000/day",
 
 
     },
