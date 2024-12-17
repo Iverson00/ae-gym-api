@@ -9,7 +9,12 @@ from .serializers import (
     PurchaseSerializer,
     MembershipSerializer,
     MembershipTransactionSerializer,
-    MembershipTransactionMembershipMemberSerializer
+    MembershipTransactionMembershipMemberSerializer,
+    MembershipExcelSerializer,
+    MemberExcelSerializer,
+    ProductExcelSerializer,
+    PurchaseExcelSerializer,
+    MembershipTransactionExcelSerializer,
 )
 from rest_framework.viewsets import ReadOnlyModelViewSet
 from drf_excel.mixins import XLSXFileMixin
@@ -293,7 +298,7 @@ class MembershipTransactionMembershipMemberViewSet(ModelViewSet):
 
 class ExcelMembershipViewSet(XLSXFileMixin, ReadOnlyModelViewSet):
     queryset = Membership.objects.all()
-    serializer_class = MembershipSerializer
+    serializer_class = MembershipExcelSerializer
     renderer_classes = (XLSXRenderer,)
     filename = "memberships.xlsx"
 
@@ -303,7 +308,7 @@ class ExcelMembershipViewSet(XLSXFileMixin, ReadOnlyModelViewSet):
 
 class ExcelProductViewSet(XLSXFileMixin, ReadOnlyModelViewSet):
     queryset = Product.objects.all()
-    serializer_class = ProductSerializer
+    serializer_class = ProductExcelSerializer
     renderer_classes = (XLSXRenderer,)
     filename = "products.xlsx"
 
@@ -313,7 +318,7 @@ class ExcelProductViewSet(XLSXFileMixin, ReadOnlyModelViewSet):
 
 class ExcelMemberViewSet(XLSXFileMixin, ReadOnlyModelViewSet):
     queryset = Member.objects.all()
-    serializer_class = MemberSerializer
+    serializer_class = MemberExcelSerializer
     renderer_classes = (XLSXRenderer,)
     filename = "members.xlsx"
 
@@ -323,7 +328,7 @@ class ExcelMemberViewSet(XLSXFileMixin, ReadOnlyModelViewSet):
 
 class ExcelPurchaseViewSet(XLSXFileMixin, ReadOnlyModelViewSet):
     queryset = Purchase.objects.all()
-    serializer_class = PurchaseSerializer
+    serializer_class = PurchaseExcelSerializer
     renderer_classes = (XLSXRenderer,)
     filename = "purchases.xlsx"
 
@@ -335,7 +340,7 @@ class ExcelMembershipTransactionViewSet(XLSXFileMixin, ReadOnlyModelViewSet):
     queryset = queryset = MembershipTransaction.objects.all().select_related(
         "member", "membership"
     )
-    serializer_class = MembershipTransactionSerializer
+    serializer_class = MembershipTransactionExcelSerializer
     renderer_classes = (XLSXRenderer,)
     filename = "membership_transactions.xlsx"
 

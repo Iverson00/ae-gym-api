@@ -65,3 +65,39 @@ class MembershipTransactionMembershipMemberSerializer(serializers.ModelSerialize
         )
 
         return membership_transaction
+
+
+class MembershipExcelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Membership
+        fields = "__all__"
+        depth = 2
+
+class ProductExcelSerializer(serializers.ModelSerializer):
+    image = serializers.ImageField(required=False) 
+
+    class Meta:
+        model = Product
+        fields = "__all__"
+        depth = 2
+
+class MemberExcelSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Member
+        fields = "__all__"
+        depth = 2
+
+class PurchaseExcelSerializer(serializers.ModelSerializer): 
+
+    class Meta:
+        model = Purchase
+        fields = "__all__"
+        depth = 2
+
+class MembershipTransactionExcelSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = MembershipTransaction
+        fields = "__all__"
+        depth = 2
